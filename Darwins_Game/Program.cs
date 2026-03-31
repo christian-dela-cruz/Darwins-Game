@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal class Program
     {

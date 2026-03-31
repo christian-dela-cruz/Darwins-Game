@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Runtime.Serialization.Formatters;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal abstract class Entity : Panel
     {

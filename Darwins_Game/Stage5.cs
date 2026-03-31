@@ -7,7 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal class Stage5:GameWindowForm
     {

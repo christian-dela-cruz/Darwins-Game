@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal static class Utility
     {

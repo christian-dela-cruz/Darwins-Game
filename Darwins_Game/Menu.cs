@@ -12,7 +12,7 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Media;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal class Menu : Form
     {
@@ -385,6 +385,17 @@ namespace Sidescroller_Game
                 this.player3Score.Size = new Size(playerScoreWidth, playerHeight);
                 this.player3Score.Location = new Point(playerScoreRow, column3);
                 this.player3Score.BackColor = Color.DarkGray;
+
+                // Populate leaderboard data from file
+                Leaderboards leaderboards = new Leaderboards();
+                string name1 = leaderboards.GetName(0), name2 = leaderboards.GetName(1), name3 = leaderboards.GetName(2);
+                int score1 = leaderboards.GetScore(0), score2 = leaderboards.GetScore(1), score3 = leaderboards.GetScore(2);
+                this.player1.Text = name1.Length > 0 ? name1 : "---";
+                this.player1Score.Text = score1 > 0 ? score1.ToString() : "---";
+                this.player2.Text = name2.Length > 0 ? name2 : "---";
+                this.player2Score.Text = score2 > 0 ? score2.ToString() : "---";
+                this.player3.Text = name3.Length > 0 ? name3 : "---";
+                this.player3Score.Text = score3 > 0 ? score3.ToString() : "---";
             }
         }
     }
