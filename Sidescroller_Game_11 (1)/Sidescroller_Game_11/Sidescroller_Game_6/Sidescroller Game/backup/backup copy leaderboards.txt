@@ -1,0 +1,197 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace Sidescroller_Game
+{
+    internal class Leaderboards
+    {
+        private string[,] leaderboard = new string[10,2];
+        private string path = Utility.DirManipulation.PathToAssets("saved data");
+        private string fileName = "leaderboards.txt";
+        public Leaderboards()
+        {
+            for (int i = 0; i < this.leaderboard.Length; i++)
+            {
+                leaderboard[i, 0] = "";
+                leaderboard[i, 1] = "0";
+                this.UpdateLeaderboard();
+            }
+        }
+        internal void UpdateLeaderboard() // reads data from leaderboard.txt and updates the local leaderboard
+        {
+            string dataString = string.Empty;
+            string[] dataStringArray;
+            bool validPath = false;
+            string path = this.path;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+                Console.WriteLine("Directory created: {0}", path);
+            }
+            path += string.Format(@"\" + this.fileName);
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    throw new FileNotFoundException();
+                }
+                else
+                {
+                    validPath = true;
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                FileStream fs = new FileStream(path, FileMode.Create);
+                fs.Close();
+                for (int i = 0; i < this.leaderboard.Length; i++)
+                {
+                    leaderboard[i, 0] = String.Empty;
+                    leaderboard[i, 1] = String.Empty;
+                }
+            }
+            if (validPath)
+            {
+                StreamReader sr = new StreamReader(path);
+                string entry = sr.ReadLine();
+                while (entry != null)
+                {
+                    dataString += entry;
+                    dataString += ";";
+                    try
+                    {
+                        entry = sr.ReadLine();
+                    }
+                    catch (System.IO.EndOfStreamException)
+                    {
+                        break;
+                    }
+                }
+                dataString = dataString.TrimEnd(';');
+                sr.Close();
+            }
+            dataStringArray = dataString.Split(';');
+            for (int i = 0; i < dataStringArray.Length; i++)
+            {
+                string[] data = dataStringArray[i].Split('|');
+                try
+                {
+                    RecordScore(ref this.leaderboard, data[0], Convert.ToInt32(data[1]));
+                }
+                catch (FormatException)
+                {
+                    continue;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    continue;
+                }
+            }
+
+        }
+        protected internal void RecordScore(ref string[,] lb, string name, int score, int index = 0) // sorts the local leaderboard
+        {
+            bool appended = false;
+            for (int i = 0; i < lb.Length / 2 - 1; i++)
+            {
+                if (score <= Convert.ToInt32(lb.GetValue(i, 1)))
+                { continue; }
+                else
+                {
+                    for (int j = lb.Length / 2 - 2; j >= i; j--)
+                    {
+                        lb.SetValue(lb.GetValue(j, 0), j + 1, 0);
+                        lb.SetValue(lb.GetValue(j, 1), j + 1, 1);
+                    }
+                    lb.SetValue(Convert.ToString(score), i, 1);
+                    lb.SetValue(name, i, 0);
+                    appended = true;
+                    break;
+                }
+            }
+            if (!appended && score > Convert.ToInt32(lb.GetValue(lb.Length / 2 - 1, 1)))
+            {
+                lb.SetValue(Convert.ToString(score), lb.Length / 2 - 1, 1);
+                lb.SetValue(name, lb.Length / 2 - 1, 0);
+            }
+        }
+        protected internal void WriteData(string name, int score) // this overload will append to the leaderboards.txt file
+        {
+            string path = this.path;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+                Console.WriteLine("Directory created: {0}", path);
+            }
+            path += string.Format(@"\" + this.fileName);
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                FileStream fs = new FileStream(path, FileMode.Create);
+                fs.Close();
+            }
+            using (StreamWriter sw = new StreamWriter(path, true))
+            {
+                sw.WriteLine(String.Format(name + '|' + Convert.ToString(score)));
+            }
+            RecordScore(ref this.leaderboard, name, score);
+        }
+        protected internal void WriteData(ref string[,] lb) // this overload will overwrite the leaderboard.txt with only the top scores recorded locally
+        {
+            string path = this.path;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+                Console.WriteLine("Directory created: {0}", path);
+            }
+            path += string.Format(@"\" + this.fileName);
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                FileStream fs = new FileStream(path, FileMode.Create);
+                fs.Close();
+            }
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                for (int i = 0; i < lb.Length / 2; i++)
+                {
+                    sw.Write(lb[i, 0]);
+                    sw.Write('|');
+                    sw.WriteLine(lb[i, 1]);
+                }
+            }
+            UpdateLeaderboard();
+        }
+        protected internal void PrintLeaderboard(string[,] lb)
+        {
+            for (int i = 0; i < lb.Length / 2; i++)
+            {
+                Console.Write(i+1);
+                Console.WriteLine(". ===============================================\n");
+                Console.WriteLine("\tName:");
+                Console.WriteLine("\t\t{0}", lb[i,0]);
+                Console.WriteLine("\tScore:");
+                Console.WriteLine("\t\t{0}\n", lb[i,1]);
+            }
+        }
+        protected internal int TotalRows
+        { get { return this.leaderboard.Length; } }
+    }
+}

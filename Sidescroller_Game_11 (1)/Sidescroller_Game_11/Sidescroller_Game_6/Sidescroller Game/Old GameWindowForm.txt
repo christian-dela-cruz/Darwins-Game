@@ -1,0 +1,212 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
+
+namespace Sidescroller_Game
+{
+    internal class OldWindowForm : Form
+    {
+        private PictureBox GameBox = new PictureBox();
+
+        private BackObject[] sand = new BackObject[2];
+
+        private int[] bgObjectQty = { 4, 4 };
+        private string[] bgObjectImageFile = { "birch tree.png", "coconut tree.png" };
+        private BackObject[] tree;
+        private int genIndex = 0;
+
+        private Panel character = new Panel();
+        private PictureBox chrImage = new PictureBox();
+        private int orgWidth;
+        private int orgHeight;
+        private double ratio;
+        private byte flipTracker = 0;
+
+        private Timer bgGen = new Timer();
+        private Timer bgMove = new Timer();
+        private Timer walkTimer = new Timer();
+
+        public OldWindowForm()
+        {
+            this.Size = new Size(960, 540);
+            this.Text = string.Format("Sidescroller Game {0}x{1}", this.Width, this.Height);
+            string path;
+            path = Convert.ToString(Directory.GetParent(Environment.CurrentDirectory));
+            path = Convert.ToString(Directory.GetParent(path));
+            path += @"\assets\" + @"sky.jpg";
+            try
+            {
+                this.GameBox.Image = Image.FromFile(path);
+                this.GameBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+            catch (FileNotFoundException)
+            {
+                this.BackColor = Color.SkyBlue;
+            }
+            try
+            {
+                path = Utility.DirManipulation.PathToAsset(@"gif assets\STAGE 01\misslink.png");
+                this.chrImage.Image = Image.FromFile(path);
+                this.chrImage.BackColor = Color.Transparent;
+                this.ratio = (double)this.chrImage.Image.Width / this.chrImage.Image.Height;
+                this.chrImage.Width = this.chrImage.Image.Width;
+                this.chrImage.Height = this.chrImage.Image.Height;
+                this.chrImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.chrImage.SizeChanged += new EventHandler(chrImage_SizeChanged);
+                this.orgWidth = this.chrImage.Width;
+                this.orgHeight = this.chrImage.Height;
+                this.chrImage.Height = 70;
+
+                this.walkTimer.Interval = 500;
+                this.walkTimer.Tick += new EventHandler(walkTimer_Tick);
+            }
+            catch (FileNotFoundException)
+            {
+                this.chrImage.BackColor = Color.Red;
+            }
+            this.GameBox.Dock = DockStyle.Fill;
+            this.Controls.Add(GameBox);
+
+            int len = this.sand.Length;
+            for (int i = 0; i < len; i++)
+            {
+                this.sand[i] = new BackObject("sand.jpg", false);
+                Image image = this.sand[i].Image;
+                this.sand[i].BackgroundImage = image;
+                this.sand[i].Image = null;
+                this.sand[i].BackgroundImageLayout = ImageLayout.Tile;
+                this.sand[i].Height = 75;
+                this.sand[i].Width = this.GameBox.Width;
+                this.GameBox.Controls.Add(this.sand[i]);
+                this.sand[i].Location = new Point(this.GameBox.Width * i, this.GameBox.Height - this.sand[i].Height);
+            }
+            this.GameBox.Controls.Add(this.character);
+            this.character.Controls.Add(this.chrImage);
+            this.character.Width = this.chrImage.Width / 2;
+            this.character.Height = this.chrImage.Height;
+            this.character.BackColor = Color.Transparent;
+            this.character.Location = new Point(75, this.GameBox.Height - this.character.Height - this.sand[0].Height);
+            FillTree();
+
+            this.bgGen.Interval = 4000;
+            this.bgGen.Tick += new EventHandler(bgGen_Tick);
+            this.bgMove.Interval = 60;
+            this.bgMove.Tick += new EventHandler(bgMove_Tick);
+
+            this.bgGen.Enabled = true;
+            this.bgMove.Enabled = true;
+            this.walkTimer.Enabled = true;
+
+        }
+        private void chrImage_SizeChanged(object sender, EventArgs e)
+        {
+            int width = this.chrImage.Width;
+            int height = this.chrImage.Height;
+            this.chrImage.Size = Utility.ImgManipulation.Object_SizeChanged(this.ratio, width, height, this.orgWidth, this.orgHeight);
+            this.orgWidth = this.chrImage.Width;
+            this.orgHeight = this.chrImage.Height;
+        }
+        private void bgGen_Tick(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            int queueSize = 1;
+            int i = 0;
+            int maxDelay = 2;
+            while (i < queueSize)
+            {
+                if (!tree[this.genIndex].Moving)
+                {
+                    int delay = r.Next(1, maxDelay);
+                    maxDelay = maxDelay / 2;
+                    tree[this.genIndex].Moving = true;
+                    tree[this.genIndex].Delay = delay;
+                }
+                this.genIndex = r.Next(tree.Length);
+                i++;
+            }
+        }
+
+        private void bgMove_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < tree.Length; i++)
+            {
+                if (tree[i].Moving)
+                {
+                    if (tree[i].Location.X < -tree[i].Width)
+                    {
+                        tree[i].Moving = false;
+                        tree[i].Location = new Point(this.Width, tree[i].Location.Y);
+                    }
+                    else if (tree[i].Delay < 0)
+                    {
+                        tree[i].Location = new Point(tree[i].Location.X - 9, tree[i].Location.Y);
+                        tree[i].Delay = 0;
+                    }
+                    else
+                    {
+                        tree[i].Delay -= bgMove.Interval;
+                    }
+                }
+                else
+                { continue; }
+            }
+            int len = this.sand.Length;
+            for (int i = 0; i < len; i++)
+            {
+                this.sand[i].Location = new Point(sand[i].Location.X - 15, sand[i].Location.Y);
+                if (this.sand[i].Location.X < -this.GameBox.Width)
+                { this.sand[i].Location = new Point(this.GameBox.Width, this.sand[i].Location.Y); }
+            }
+        }
+        private void walkTimer_Tick(object sender, EventArgs e)
+        {
+            if (this.flipTracker == 0)
+            {
+                this.chrImage.Location = new Point(this.chrImage.Location.X - this.chrImage.Width / 2, this.chrImage.Location.Y);
+                this.flipTracker = 1;
+            }
+            else
+            {
+                this.chrImage.Location = new Point(this.chrImage.Location.X + this.chrImage.Width / 2, this.chrImage.Location.Y);
+                this.flipTracker = 0;
+            }
+        }
+        private void FillTree()
+        {
+            Random r = new Random();
+            int totalBackgroundObjects = 0;
+            foreach (int weight in this.bgObjectQty)
+            { totalBackgroundObjects += weight; }
+
+            this.tree = new BackObject[totalBackgroundObjects];
+
+            int lastTreeIndex = 0;
+            for (int i = 0; i < this.bgObjectQty.Length; i++)
+            {
+                string assetString = this.bgObjectImageFile[i];
+                for (int j = 0; j < this.bgObjectQty[i]; j++)
+                {
+                    int currTreeIndex = lastTreeIndex + j;
+                    tree[currTreeIndex] = new BackObject(assetString);
+                    tree[currTreeIndex].Width = r.Next(170, 251);
+                    int flip = r.Next(2);
+                    if (flip < 1)
+                    {
+                        tree[currTreeIndex].Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    }
+                    int xpos = this.Width;
+                    int ypos = this.GameBox.Height - tree[currTreeIndex].Height - this.sand[0].Height;
+                    tree[currTreeIndex].Location = new Point(xpos, ypos);
+
+                    this.GameBox.Controls.Add(tree[currTreeIndex]);
+                }
+                lastTreeIndex = this.bgObjectQty[i];
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_5 (1)\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_7\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Gian\Documents\C# VS projects\Sidescroller Game Copies\Sidescroller_Game_8\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_9\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_10\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Christian\Downloads\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+C:\Users\Christian\Documents\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe.config
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.exe
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\bin\Debug\Sidescroller Game.pdb
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.AssemblyReference.cache
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe.config
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.csproj.CoreCompileInputs.cache
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.exe
+G:\Academic\MMCL\2nd Year - Term 1\IT111-L\Sidescroller_Game_11 (1)\Sidescroller_Game_11\Sidescroller_Game_6\Sidescroller Game\obj\Debug\Sidescroller Game.pdb

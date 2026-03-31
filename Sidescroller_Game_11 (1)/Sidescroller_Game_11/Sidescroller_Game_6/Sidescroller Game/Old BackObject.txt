@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
+
+namespace Sidescroller_Game
+{
+    internal class BackObject: PictureBox
+    {
+        private double ratio;
+        private bool empty = true;
+        private bool moving = false;
+        private int delay = 0;
+        private string fileName;
+        private int originalWidth;
+        private int originalHeight;
+        public BackObject(string fileName, bool keepAspectRatio = true)
+        {
+            try
+            {
+                this.fileName = fileName;
+                string path;
+                path = Utility.DirManipulation.PathToAsset(fileName);
+
+                this.Image = Image.FromFile(path);
+                this.ratio = ((double)this.Image.Width / (double)this.Image.Height);
+                this.originalWidth = this.Image.Width;
+                this.originalHeight = this.Image.Height;
+                this.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.empty = false;
+
+                this.BackColor = Color.Transparent;
+
+                if (keepAspectRatio)
+                {
+                    this.SizeChanged += this.BackObject_SizeChanged;
+                }
+                //this.Paint += this.Form1_Paint;
+
+            }
+            catch (FileNotFoundException)
+            {
+                this.empty = true;
+                this.BackColor = Color.White;
+                Label label = new Label();
+                label.Text = "Image Not Found";
+                label.ForeColor = Color.Red;
+                label.BackColor = Color.White;
+                this.Controls.Add(label);
+                label.Anchor = AnchorStyles.None;
+            }
+        }
+        internal void BackObject_SizeChanged(object sender, EventArgs e)
+        {
+            if (!empty)
+            {
+                this.Size = Utility.ImgManipulation.Object_SizeChanged(ratio, this.Width, this.Height, originalWidth, originalHeight);
+                this.originalWidth = this.Size.Width;
+                this.originalHeight = this.Size.Height;
+            }
+        }
+        private void Form1_Paint(object sender, System.Windows.Forms.PaintEventArgs pe)
+        {
+            string path;
+            path = Convert.ToString(Directory.GetParent(Environment.CurrentDirectory));
+            path = Convert.ToString(Directory.GetParent(path));
+            path = path + @"\assets\" + this.fileName;
+            Image image = Image.FromFile(path);
+            Rectangle rec = new Rectangle(0,0,this.Width, this.Height);
+            pe.Graphics.DrawRectangle(new Pen(Color.Red, 2f),rec);
+        }
+
+        public bool Moving
+        { get { return this.moving; } set { this.moving = value; } }
+        public int Delay
+        { get { return this.delay; } set { this.delay = value; } }
+        public string FileName
+        { get { return this.fileName; } }
+        public double Ratio
+        { get { return this.ratio; } set { this.ratio = value; } }
+        public bool Empty
+        { get { return this.empty; } set { this.empty = value; } }
+        public int OriginalWidth
+        { get { return this.originalWidth; } set { this.originalWidth = value; } }
+        public int OriginalHeight
+        { get { return this.originalHeight; } set { this.originalHeight = value;  } }
+    }
+}

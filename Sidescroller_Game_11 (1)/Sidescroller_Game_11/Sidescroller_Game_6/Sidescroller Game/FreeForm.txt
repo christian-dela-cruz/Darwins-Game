@@ -1,0 +1,235 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
+
+using System.ComponentModel;
+using System.Data;
+
+namespace Sidescroller_Game
+{
+    internal class FreeForm : Form
+    {
+
+        private BackObject[] sand = new BackObject[2];
+
+        private int[] bgObjectQty = { 4, 4 };
+        private string[] bgObjectImageFile = { "birch tree.png", "coconut tree.png" };
+        private BackObject[] tree;
+        private int genIndex = 0;
+
+
+        // private PictureBox GameBox = new PictureBox();
+        private PictureBox character = new PictureBox();
+        private PictureBox terrain = new PictureBox();
+
+
+        private Timer bgGen = new Timer();
+        private Timer bgMove = new Timer();
+
+        public string path;
+
+        //--------------------------------- try ----------------------------------------
+        Random rand = new Random();
+        bool jumping = false;
+        int jumpSpeed = 0;
+        int force = 12;
+        int score = 0;
+        int obstacleSpeed = 10;
+        int position;
+        bool isGameOver = false;
+
+        public FreeForm()
+        {
+            InitializeComponent();
+            // GameReset();
+        }
+
+        private void InitializeComponent()
+
+        {
+            Timer gameTimer = new Timer();
+            gameTimer.Tick += new EventHandler(MainGameTimerEvent);
+            gameTimer.Interval = 20; // Adjust the interval as needed
+            gameTimer.Start();
+
+            this.Size = new Size(960, 540);
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.Text = string.Format("Sidescroller Game {0}x{1}", this.Width, this.Height);
+
+            // ------------------------------------------------------------------
+
+            this.character = new PictureBox();
+            try
+            {
+                path = Utility.DirManipulation.PathToAsset(@"gif assets\STAGE 01\misslink01.png");
+                this.character.BackgroundImage = Image.FromFile(path);
+            }
+            catch (FileNotFoundException)
+            {
+                this.character.BackColor = Color.Red;
+            }
+
+            // this.GameBox.Dock = DockStyle.Fill;
+            // this.Controls.Add(GameBox);
+            // ------------------------------------------------------------------
+            //CHARACTER
+
+            this.character.BackgroundImageLayout = ImageLayout.Zoom;
+            this.character.Size = new Size(100, 150);
+            //this.character.BackColor = Color.Transparent;
+            this.character.Location = new Point(147, 353);
+
+            this.Controls.Add(this.character);
+
+            this.character.TabIndex = 1;
+            this.character.TabStop = false;
+            // ------------------------------------------------------------------
+            //
+            this.terrain = new PictureBox();
+
+            //try ko muna plain ground. 
+            this.terrain.BackColor = Color.Black;
+            this.terrain.Size = new Size(960, 50);
+            this.terrain.Location = new Point(-12, 460);
+            this.terrain.TabIndex = 0;
+            this.terrain.TabStop = false;
+
+            this.Controls.Add(this.terrain);
+
+
+
+            this.KeyDown += new KeyEventHandler(this.keyisdown);
+            this.KeyUp += new KeyEventHandler(this.keyisup);
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        private void MainGameTimerEvent(object sender, EventArgs e)
+        {
+            character.Top += jumpSpeed;
+
+            //txtScore.Text = "Score: " + score;
+
+            if (jumping == true && force < 0)
+            {
+                jumping = false;
+            }
+
+            if (jumping == true)
+            {
+                jumpSpeed = -12;
+                force -= 1;
+            }
+            else
+            {
+                jumpSpeed = 12;
+            }
+
+
+            if (character.Top > 366 && jumping == false)
+            {
+                force = 12;
+                character.Top = 367;
+                jumpSpeed = 0;
+            }
+
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "obstacle")
+                {
+                    x.Left -= obstacleSpeed;
+
+                    if (x.Left < -100)
+                    {
+                        x.Left = this.ClientSize.Width + rand.Next(200, 500) + (x.Width * 15);
+                        score++;
+                    }
+
+                    if (character.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        //gameTimer.Stop();
+                        // txtScore.Text += " Press R to restart the game!";
+                        isGameOver = true;
+                    }
+                }
+            }
+
+            if (score > 5)
+            {
+                obstacleSpeed = 15;
+            }
+        }
+        private void keyisdown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space && jumping == false)
+            {
+                jumping = true;
+            }
+        }
+
+        private void keyisup(object sender, KeyEventArgs e)
+        {
+            if (jumping == true)
+            {
+                jumping = false;
+            }
+
+            if (e.KeyCode == Keys.R && isGameOver == true)
+            {
+                GameReset();
+            }
+        }
+
+        private void GameReset()
+        {
+            force = 12;
+            jumpSpeed = 0;
+            jumping = false;
+            score = 0;
+            obstacleSpeed = 10;
+            //txtScore.Text = "Score: " + score;
+
+
+            path = Utility.DirManipulation.PathToAsset(@"stage1.gif");
+            this.character.BackgroundImage = Image.FromFile(path);
+            //this.character.BackgroundImageLayout = ImageLayout.Stretch;
+
+            isGameOver = false;
+            //character.Top = 367;
+
+            foreach (Control x in this.Controls)
+            {
+
+                if (x is PictureBox && (string)x.Tag == "obstacle")
+                {
+                    position = this.ClientSize.Width + rand.Next(500, 800) + (x.Width * 10);
+
+                    x.Left = position;
+                }
+            }
+
+            // gameTimer.Start();
+
+
+        }
+
+    }
+}
