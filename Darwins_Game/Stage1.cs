@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal class Stage1 : GameWindowForm
     {

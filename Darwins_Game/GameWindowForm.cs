@@ -8,9 +8,9 @@ using System.Windows.Forms;
 using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Media;
-using static Sidescroller_Game.Menu;
+using static Darwins_Game.Menu;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {
     internal abstract class GameWindowForm : Form
     {
@@ -77,7 +77,7 @@ namespace Sidescroller_Game
             // Formatting the Form itself ==================================================
             this.StartPosition = FormStartPosition.CenterParent;
             this.Size = new Size(960, 540);
-            this.Text = string.Format("Sidescroller Game {0}x{1}", this.Width, this.Height);
+            this.Text = string.Format("Darwin's Game {0}x{1}", this.Width, this.Height);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = Color.Green;
 

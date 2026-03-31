@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Sidescroller_Game.Leaderboards;
+using static Darwins_Game.Leaderboards;
 
-namespace Sidescroller_Game
+namespace Darwins_Game
 {    
     internal class Stage2: GameWindowForm
     {
