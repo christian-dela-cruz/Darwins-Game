@@ -1,0 +1,12 @@
+# Build output
+Darwins_Game/bin/
+Darwins_Game/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
